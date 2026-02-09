@@ -1,6 +1,8 @@
-from collections import Counter
-
 class Solution:
     def findTheDifference(self, s: str, t: str) -> str:
-        c = Counter(t) - Counter(s)
-        return list(c.keys())[0]
+        res = 0
+        for ch in s:
+            res ^= ord(ch)
+        for ch in t:
+            res ^= ord(ch)
+        return chr(res)
